@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-const MAX_LENGTH = {
+export const MAX_LENGTH = {
   EMAIL: 80,
   PASSWORD: 60,
   FIRST_NAME: 50,
@@ -16,7 +16,7 @@ export class TestUser {
   readonly email: string;
 
   @Column({ name: 'password', length: MAX_LENGTH.PASSWORD })
-  readonly password: string;
+  password: string;
 
   @Column({ name: 'first_name', length: MAX_LENGTH.FIRST_NAME })
   firstName: string;

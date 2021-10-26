@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfModule } from './conf/conf.module';
 import { DatabaseConfig } from './conf/database.config';
+import { SampleModule } from './sample/sample.module';
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { DatabaseConfig } from './conf/database.config';
       imports: [ConfModule],
       useExisting: DatabaseConfig,
     }),
+    SampleModule,
   ],
   controllers: [AppController],
   providers: [AppService],
