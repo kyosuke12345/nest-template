@@ -5,6 +5,7 @@ backend/dist
 backend/node_modules
 
 # Logs
+backend/log
 backend/logs
 backend/*.log
 backend/npm-debug.log*
