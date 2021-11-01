@@ -7,6 +7,7 @@ import { DatabaseConfig } from './conf/database.config';
 import { SampleModule } from './sample/sample.module';
 import { CustomLoggerModule } from './custom-logger/custom-logger.module';
 import { SampleRelation1to1Module } from './sample-relation1to1/sample-relation1to1.module';
+import { SampleRelation1tonModule } from './sample-relation1ton/sample-relation1ton.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { SampleRelation1to1Module } from './sample-relation1to1/sample-relation1
     SampleModule,
     CustomLoggerModule,
     SampleRelation1to1Module,
+    SampleRelation1tonModule,
   ],
   controllers: [AppController],
   providers: [AppService],
