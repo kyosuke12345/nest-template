@@ -9,6 +9,8 @@ services:
     volumes:
       - ./backend/:/app
     tty: true
+    environment:
+      NODE_ENV: local
 
   db:
     image: postgres:latest
