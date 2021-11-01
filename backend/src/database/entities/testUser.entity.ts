@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { TestProfile } from './testProfile.entity';
 
 export const MAX_LENGTH = {
   EMAIL: 80,
@@ -13,7 +20,7 @@ export class TestUser {
   readonly id: number;
 
   @Column({ name: 'email', length: MAX_LENGTH.EMAIL, unique: true })
-  readonly email: string;
+  email: string;
 
   @Column({ name: 'password', length: MAX_LENGTH.PASSWORD })
   password: string;
@@ -23,4 +30,15 @@ export class TestUser {
 
   @Column({ name: 'last_name', length: MAX_LENGTH.LAST_NAME })
   lastName: string;
+
+  /** 1対1 */
+  @Column({
+    name: 'profile_id',
+    nullable: true,
+  })
+  profileId: number;
+
+  @OneToOne(() => TestProfile)
+  @JoinColumn({ name: 'profile_id', referencedColumnName: 'id' })
+  testProfile: TestProfile | null;
 }
