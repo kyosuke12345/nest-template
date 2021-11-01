@@ -2,10 +2,12 @@ import {
   Column,
   Entity,
   JoinColumn,
+  OneToMany,
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { TestProfile } from './testProfile.entity';
+import { TestTweet } from './testTweet.entity';
 
 export const MAX_LENGTH = {
   EMAIL: 80,
@@ -41,4 +43,8 @@ export class TestUser {
   @OneToOne(() => TestProfile)
   @JoinColumn({ name: 'profile_id', referencedColumnName: 'id' })
   testProfile: TestProfile | null;
+
+  /** 1対N */
+  @OneToMany(() => TestTweet, (tweet) => tweet.user)
+  tweets: TestTweet[];
 }

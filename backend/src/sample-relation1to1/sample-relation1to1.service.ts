@@ -78,6 +78,7 @@ export class SampleRelation1to1Service {
       await queryRunner.commitTransaction();
       return new SampleRelation1to1Response(newUser);
     } catch (err) {
+      this.logger.error(err);
       await queryRunner.rollbackTransaction();
       throw err;
     } finally {
@@ -126,6 +127,7 @@ export class SampleRelation1to1Service {
       await queryRunner.commitTransaction();
       return new SampleRelation1to1Response(user);
     } catch (err) {
+      this.logger.error(err);
       await queryRunner.rollbackTransaction();
       throw err;
     } finally {
@@ -159,6 +161,7 @@ export class SampleRelation1to1Service {
       await queryRunner.commitTransaction();
       return new SampleRelation1to1Response(user);
     } catch (err) {
+      this.logger.error(err);
       await queryRunner.rollbackTransaction();
       throw err;
     } finally {

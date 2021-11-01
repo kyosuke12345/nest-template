@@ -9,7 +9,9 @@ describe('SampleRelation1to1Controller', () => {
       controllers: [SampleRelation1to1Controller],
     }).compile();
 
-    controller = module.get<SampleRelation1to1Controller>(SampleRelation1to1Controller);
+    controller = module.get<SampleRelation1to1Controller>(
+      SampleRelation1to1Controller,
+    );
   });
 
   it('should be defined', () => {
