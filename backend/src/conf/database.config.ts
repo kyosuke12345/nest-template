@@ -2,6 +2,7 @@ import { TypeOrmOptionsFactory, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { TestUser } from 'src/database/entities/testUser.entity';
+import { TestProfile } from 'src/database/entities/testProfile.entity';
 
 @Injectable()
 export class DatabaseConfig implements TypeOrmOptionsFactory {
@@ -16,9 +17,9 @@ export class DatabaseConfig implements TypeOrmOptionsFactory {
       password: this.configService.get<string>('DATABASE_PASSWORD', ''),
       database: this.configService.get<string>('DATABASE_DB'),
       // ssl: {},
-      entities: [TestUser],
+      entities: [TestUser, TestProfile],
       synchronize: false,
-      logging: this.configService.get<boolean>('DATABASE_LOG'),
+      logging: this.configService.get<string>('DATABASE_LOG') === 'true',
     };
   }
 }
