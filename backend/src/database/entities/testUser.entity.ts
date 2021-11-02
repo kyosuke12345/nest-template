@@ -8,6 +8,7 @@ import {
 } from 'typeorm';
 import { TestProfile } from './testProfile.entity';
 import { TestTweet } from './testTweet.entity';
+import { TestUserHobby } from './testUserHobby.entity';
 
 export const MAX_LENGTH = {
   EMAIL: 80,
@@ -47,4 +48,8 @@ export class TestUser {
   /** 1対N */
   @OneToMany(() => TestTweet, (tweet) => tweet.user)
   tweets: TestTweet[];
+
+  /** 多対多 */
+  @OneToMany(() => TestUserHobby, (userHobby) => userHobby.user)
+  userHobbies: TestUserHobby[];
 }
