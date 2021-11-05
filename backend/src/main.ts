@@ -2,7 +2,7 @@ import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
-import { CustomLoggerService } from './custom-logger/custom-logger.service';
+// import { SystemLoggerService } from './custom-logger/system-logger.service';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -10,8 +10,8 @@ async function bootstrap() {
   // config class-validatoin
   app.useGlobalPipes(new ValidationPipe());
 
-  // log setting
-  app.useLogger(app.get(CustomLoggerService));
+  // // log setting
+  // app.useLogger(app.get(SystemLoggerService));
 
   // config swagger
   const config = new DocumentBuilder()

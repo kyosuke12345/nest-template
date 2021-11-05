@@ -1,10 +1,12 @@
 import { Module, Global } from '@nestjs/common';
-import { CustomLoggerService } from './custom-logger.service';
+import { AccessLoggerService } from './access-logger.service';
+import { ErrorLoggerService } from './error-logger.service';
+import { SystemLoggerService } from './system-logger.service';
 
 // import しなくても使用できるように
 @Global()
 @Module({
-  providers: [CustomLoggerService],
-  exports: [CustomLoggerService],
+  providers: [SystemLoggerService, ErrorLoggerService, AccessLoggerService],
+  exports: [SystemLoggerService, ErrorLoggerService, AccessLoggerService],
 })
 export class CustomLoggerModule {}

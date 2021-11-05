@@ -9,6 +9,7 @@ import { CustomLoggerModule } from './custom-logger/custom-logger.module';
 import { SampleRelation1to1Module } from './sample-relation1to1/sample-relation1to1.module';
 import { SampleRelation1tonModule } from './sample-relation1ton/sample-relation1ton.module';
 import { SampleRelationntonModule } from './sample-relationnton/sample-relationnton.module';
+import { CoreModule } from './core/core.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { SampleRelationntonModule } from './sample-relationnton/sample-relationn
     SampleRelation1to1Module,
     SampleRelation1tonModule,
     SampleRelationntonModule,
+    CoreModule,
   ],
   controllers: [AppController],
   providers: [AppService],

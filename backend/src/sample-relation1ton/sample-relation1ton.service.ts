@@ -1,6 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CustomLoggerService } from 'src/custom-logger/custom-logger.service';
 import { TestTweet } from 'src/database/entities/testTweet.entity';
 import { TestUser } from 'src/database/entities/testUser.entity';
 import { Connection, Repository } from 'typeorm';
@@ -18,7 +17,6 @@ export class SampleRelation1tonService {
     private readonly userRepository: Repository<TestUser>,
     @InjectRepository(TestTweet)
     private readonly tweetRepository: Repository<TestTweet>,
-    private readonly logger: CustomLoggerService,
     private readonly connection: Connection,
   ) {}
 
@@ -89,7 +87,6 @@ export class SampleRelation1tonService {
       await queryRunner.commitTransaction();
       return new SampleRelation1toNResponse(newUser);
     } catch (err) {
-      this.logger.error(err);
       await queryRunner.rollbackTransaction();
       throw err;
     } finally {
@@ -147,7 +144,6 @@ export class SampleRelation1tonService {
       await queryRunner.commitTransaction();
       return new SampleRelation1toNResponse(user);
     } catch (err) {
-      this.logger.error(err);
       await queryRunner.rollbackTransaction();
       throw err;
     } finally {
